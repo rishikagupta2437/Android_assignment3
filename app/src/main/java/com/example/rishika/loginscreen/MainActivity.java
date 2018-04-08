@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         password = (EditText)findViewById(R.id.password);
         submit = (Button)findViewById(R.id.submit);
         reset = (Button)findViewById(R.id.reset);
-        attempts = (TextView)findViewById(R.id.attempts);
+        
 
         submit.setOnClickListener((View.OnClickListener) this);
         reset.setOnClickListener((View.OnClickListener) this);
@@ -40,17 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
 
-                counter = 3;
-                attempts.setVisibility(TextView.INVISIBLE);
+
             }
             else
             {
-                attempts.setVisibility(TextView.VISIBLE);
-                attempts.setText("Attempts Remaining : "+(--counter));
-                if(counter == 0)
-                {
-                    submit.setEnabled(false);
-                }
+
+                Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_LONG).show();
             }
         }
         if(v.getId()==R.id.reset)
